@@ -2,16 +2,16 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
-	<classpathentry kind="lib" path="d1804a35-da21-3f64-b8ab-197cfcbafcaf.jar"/>
-	<classpathentry kind="lib" path="antlr-2.7.4.jar"/>
-	<classpathentry kind="lib" path="chardet-1.0.jar"/>
-	<classpathentry kind="lib" path="cpdetector_1.0.10.jar"/>
-	<classpathentry kind="lib" path="jargs-1.0.jar"/>
-	<classpathentry kind="lib" path="log4j-1.2.8.jar"/>
-	<classpathentry kind="lib" path="dac0fe1d-91b2-3bbf-a6a1-2ffe059d461d.jar"/>
-	<classpathentry kind="lib" path="commons-codec-1.10.jar"/>
-	<classpathentry kind="lib" path="IKAnalyzer3.2.0Stable.jar"/>
-	<classpathentry kind="lib" path="contentextractor-1.0.jar"/>
-	<classpathentry kind="lib" path="jsoup-1.7.3.jar"/>
+	<classpathentry kind="lib" path="lib/antlr-2.7.4.jar"/>
+	<classpathentry kind="lib" path="lib/chardet-1.0.jar"/>
+	<classpathentry kind="lib" path="lib/commons-codec-1.10.jar"/>
+	<classpathentry kind="lib" path="lib/contentextractor-1.0.jar"/>
+	<classpathentry kind="lib" path="lib/cpdetector_1.0.10.jar"/>
+	<classpathentry kind="lib" path="lib/d1804a35-da21-3f64-b8ab-197cfcbafcaf.jar"/>
+	<classpathentry kind="lib" path="lib/dac0fe1d-91b2-3bbf-a6a1-2ffe059d461d.jar"/>
+	<classpathentry kind="lib" path="lib/IKAnalyzer3.2.0Stable.jar"/>
+	<classpathentry kind="lib" path="lib/jargs-1.0.jar"/>
+	<classpathentry kind="lib" path="lib/jsoup-1.7.3.jar"/>
+	<classpathentry kind="lib" path="lib/log4j-1.2.8.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

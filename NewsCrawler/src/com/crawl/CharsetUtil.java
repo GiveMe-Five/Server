@@ -1,7 +1,7 @@
  /**  
  *@Description:  ±àÂë·½Ê½¼ì²âÀà  
  */ 
-package util;  
+package com.crawl;  
 
 import java.io.IOException;
 import java.io.InputStream;

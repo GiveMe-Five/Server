@@ -1,7 +1,7 @@
  /**  
  *@Description:   新闻类网站新闻内容 
  */ 
-package news;  
+package com.crawl;  
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -9,8 +9,6 @@ import java.util.HashMap;
 import org.apache.commons.httpclient.HttpException;
 
 import cn.edu.hfut.dmic.htmlbot.contentextractor.ContentExtractor;
-import crawl.CrawlBase;
-import util.DoRegex;
   
 public class News extends CrawlBase{
 	private String url;

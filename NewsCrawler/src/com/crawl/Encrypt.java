@@ -1,7 +1,7 @@
  /**   
  *@Description: JAVA实现常见加密算法 
  */   
-package util;    
+package com.crawl;    
   
 import java.security.MessageDigest;  
 import java.security.NoSuchAlgorithmException;  

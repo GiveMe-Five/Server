@@ -1,7 +1,7 @@
  /**   
  *@Description: 模拟http请求，获取网页信息基类 
  */   
-package crawl;    
+package com.crawl;    
       
 import java.io.BufferedReader;  
 import java.io.ByteArrayInputStream;  
@@ -14,6 +14,7 @@ import java.util.Iterator;
 import java.util.Map;  
 import java.util.Map.Entry;  
       
+
 
 
 import org.apache.commons.httpclient.Header;  
@@ -29,8 +30,6 @@ import org.apache.log4j.Logger;
       
 
 
-import util.CharsetUtil;  
-import util.DoRegex;  
       
 public abstract class CrawlBase {    
 	private static Logger log = Logger.getLogger(CrawlBase.class);  

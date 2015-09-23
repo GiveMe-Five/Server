@@ -4,7 +4,7 @@
      /**   
      *@Description:      
      */   
-    package data;    
+    package com.bean;    
         
     public class NewsBean {  
         private String id;//Œ®“ª±Í ∂  

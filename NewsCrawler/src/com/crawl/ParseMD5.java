@@ -2,7 +2,7 @@
  /**   
  *@Description: 将字符串转化为MD5 
  */   
-package util;    
+package com.crawl;    
   
 public class ParseMD5 extends Encrypt{  
   

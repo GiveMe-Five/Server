@@ -1,18 +1,17 @@
  /**  
  *@Description:     
  */ 
-package data;  
+package com.main;  
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import news.BaiduNewList;
-import news.News;
-//import index.KnnIndex;
-//import index.KnnSearch;
-import util.ParseMD5;
+import com.bean.NewsBean;
+import com.crawl.BaiduNewList;
+import com.crawl.News;
+import com.crawl.ParseMD5;
   
 public class CrawlNews {
 	private static List<Info> infos;

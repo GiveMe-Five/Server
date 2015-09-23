@@ -1,18 +1,17 @@
      /**   
      *@Description:   百度新闻滚动列表页，可以获取当前页面上的链接 
      */   
-    package news;    
+    package com.crawl;    
       
     import java.io.IOException;  
-    import java.util.HashMap;  
+import java.util.HashMap;  
       
-    import crawl.CrawlListPageBase;  
         
     public class BaiduNewList extends CrawlListPageBase{  
         private static HashMap<String, String> params;  
           
         /** 
-         * 添加相关头信息，对请求进行伪装 
+         * 添加相关头信息，对请求进行伪�?
          */  
         static {  
             params = new HashMap<String, String>();  
@@ -27,7 +26,7 @@
         @Override  
         public String getUrlRegexString() {  
             //新闻列表页中文章链接地址的正则表达式  
-//            return "• <a href=\"(.*?)\"";  
+//            return "�?<a href=\"(.*?)\"";  
         	return "&#8226;<a\\s+href\\s*=\\s*\"?(.*?)[\"|>]";
         }  
       

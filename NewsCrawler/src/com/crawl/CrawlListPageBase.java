@@ -1,14 +1,12 @@
  /**  
   *@Description: 获取页面链接地址信息基类  
  */ 
-package crawl;  
+package com.crawl;  
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-
-import util.DoRegex;
 
 
 public abstract class CrawlListPageBase extends CrawlBase {

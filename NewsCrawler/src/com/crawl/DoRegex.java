@@ -1,7 +1,7 @@
  /**  
  * @Description: 正则处理工具   
  */ 
-package util;  
+package com.crawl;  
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
