@@ -21,36 +21,36 @@ public class CrawlNews {
 	
 	static {
 		infos = new ArrayList<Info>();
-		infos.add(new Info("http://news.baidu.com/n?cmd=4&class=sportnews&pn=1&from=tab", "ÌåÓıÀà"));
-		infos.add(new Info("http://news.baidu.com/n?cmd=4&class=sportnews&pn=2&from=tab", "ÌåÓıÀà"));
-		infos.add(new Info("http://news.baidu.com/n?cmd=4&class=sportnews&pn=3&from=tab", "ÌåÓıÀà"));
+		infos.add(new Info("http://news.baidu.com/n?cmd=4&class=sportnews&pn=1&from=tab", 0));
+		infos.add(new Info("http://news.baidu.com/n?cmd=4&class=sportnews&pn=2&from=tab", 0));
+		infos.add(new Info("http://news.baidu.com/n?cmd=4&class=sportnews&pn=3&from=tab", 0));
 		
-		infos.add(new Info("http://news.baidu.com/n?cmd=4&class=mil&pn=1&sub=0", "¾üÊÂÀà"));
-		infos.add(new Info("http://news.baidu.com/n?cmd=4&class=mil&pn=2&sub=0", "¾üÊÂÀà"));
-		infos.add(new Info("http://news.baidu.com/n?cmd=4&class=mil&pn=3&sub=0", "¾üÊÂÀà"));
+		infos.add(new Info("http://news.baidu.com/n?cmd=4&class=mil&pn=1&sub=0", 1));
+		infos.add(new Info("http://news.baidu.com/n?cmd=4&class=mil&pn=2&sub=0", 1));
+		infos.add(new Info("http://news.baidu.com/n?cmd=4&class=mil&pn=3&sub=0", 1));
 		
-		infos.add(new Info("http://news.baidu.com/n?cmd=4&class=finannews&pn=1&sub=0", "²Æ¾­Àà"));
-		infos.add(new Info("http://news.baidu.com/n?cmd=4&class=finannews&pn=2&sub=0", "²Æ¾­Àà"));
-		infos.add(new Info("http://news.baidu.com/n?cmd=4&class=finannews&pn=3&sub=0", "²Æ¾­Àà"));
+		infos.add(new Info("http://news.baidu.com/n?cmd=4&class=finannews&pn=1&sub=0", 2));
+		infos.add(new Info("http://news.baidu.com/n?cmd=4&class=finannews&pn=2&sub=0", 2));
+		infos.add(new Info("http://news.baidu.com/n?cmd=4&class=finannews&pn=3&sub=0", 2));
 		
-		infos.add(new Info("http://news.baidu.com/n?cmd=4&class=internet&pn=1&from=tab", "»¥ÁªÍø"));
+		infos.add(new Info("http://news.baidu.com/n?cmd=4&class=internet&pn=1&from=tab", 3));
 		
-		infos.add(new Info("http://news.baidu.com/n?cmd=4&class=housenews&pn=1&sub=0", "·¿²úÀà"));
-		infos.add(new Info("http://news.baidu.com/n?cmd=4&class=housenews&pn=2&sub=0", "·¿²úÀà"));
-		infos.add(new Info("http://news.baidu.com/n?cmd=4&class=housenews&pn=3&sub=0", "·¿²úÀà"));
+		infos.add(new Info("http://news.baidu.com/n?cmd=4&class=housenews&pn=1&sub=0", 4));
+		infos.add(new Info("http://news.baidu.com/n?cmd=4&class=housenews&pn=2&sub=0", 4));
+		infos.add(new Info("http://news.baidu.com/n?cmd=4&class=housenews&pn=3&sub=0", 4));
 		
-		infos.add(new Info("http://news.baidu.com/n?cmd=4&class=gamenews&pn=1&sub=0", "ÓÎÏ·Àà"));
-		infos.add(new Info("http://news.baidu.com/n?cmd=4&class=gamenews&pn=2&sub=0", "ÓÎÏ·Àà"));
-		infos.add(new Info("http://news.baidu.com/n?cmd=4&class=gamenews&pn=3&sub=0", "ÓÎÏ·Àà"));
+		infos.add(new Info("http://news.baidu.com/n?cmd=4&class=gamenews&pn=1&sub=0", 5));
+		infos.add(new Info("http://news.baidu.com/n?cmd=4&class=gamenews&pn=2&sub=0", 5));
+		infos.add(new Info("http://news.baidu.com/n?cmd=4&class=gamenews&pn=3&sub=0", 5));
 	}
 	
 	/**
-	 *@Description:  ×¥È¡ÍøÖ·ĞÅÏ¢
+	 *@Description:  æŠ“å–ç½‘å€ä¿¡æ¯
 	 */
 	static class Info{
 		String url;
-		String type;
-		Info(String url, String type) {
+		int type;
+		Info(String url, int type) {
 			this.url = url;
 			this.type = type;
 		}
@@ -58,7 +58,7 @@ public class CrawlNews {
 	
 	/**
 	 * @param info
-	 * @Description: ×¥È¡Ò»¸öÁĞ±íÒ³ÃæÏÂµÄĞÂÎÅĞÅÏ¢
+	 * @Description: æŠ“å–ä¸€ä¸ªåˆ—è¡¨ä¸‹é¢çš„æ–°é—»ä¿¡æ¯
 	 */
 	private void crawl(Info info) {
 		if (info == null) {
@@ -67,7 +67,7 @@ public class CrawlNews {
 		try {
 			BaiduNewList baiduNewList = new BaiduNewList(info.url);
 			List<String> urls = baiduNewList.getPageUrls();
-			for (String url : urls) { // ¶ÔÃ¿Ò»ÌõĞÂÎÅÁ´½Ó£¬»ñÈ¡ÆäÕıÎÄÄÚÈİ
+			for (String url : urls) { // å¯¹æ¯ä¸€æ¡æ–°é—»é“¾æ¥ï¼Œè·å–å…¶æ­£æ–‡å†…å®¹
 				News news = new News(url);
 				NewsBean newBean = new NewsBean();
 				newBean.setId(ParseMD5.parseStrToMd5L32(url));
@@ -77,9 +77,9 @@ public class CrawlNews {
 				newBean.setContent(news.getContent());
 				System.out.println("title: "+news.getTitle());
 				System.out.println("content: "+news.getContent());
-				//±£´æµ½Ë÷ÒıÎÄ¼şÖĞ
+				//ä¿å­˜åˆ°ç´¢å¼•æ–‡ä»¶ä¸­
 //				knnIndex.add(newBean);
-//				//knnÑéÖ¤
+//				//knnéªŒè¯
 //				if (news.getContent() == null || "".equals(news.getContent())) {
 //					result.put("E", 1+result.get("E"));
 //					continue;
@@ -96,7 +96,7 @@ public class CrawlNews {
 	}
 	
 	/**
-	 * @Description: Æô¶¯Èë¿Ú
+	 * @Description: starter
 	 */
 	public void run() {
 		result = new HashMap<String, Integer>(); 
@@ -113,7 +113,7 @@ public class CrawlNews {
 			System.out.println("R = " + result.get("R"));
 			System.out.println("W = " + result.get("W"));
 			System.out.println("E = " + result.get("E"));
-			System.out.println("¾«È·¶È£º" + (result.get("R") * 1.0 / (result.get("R") + result.get("W"))));
+			System.out.println("ï¿½ï¿½È·ï¿½È£ï¿½" + (result.get("R") * 1.0 / (result.get("R") + result.get("W"))));
 			System.out.println("-------------finished---------------");
 //		} catch (IOException e) {
 //			e.printStackTrace();

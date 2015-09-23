@@ -1,5 +1,5 @@
  /**  
- *@Description:   ĞÂÎÅÀàÍøÕ¾ĞÂÎÅÄÚÈİ 
+ *@Description:  æ–°é—»ç±»ç½‘ç«™æ–°é—»å†…å®¹  
  */ 
 package com.crawl;  
 
@@ -16,15 +16,15 @@ public class News extends CrawlBase{
 	private String title;
 	private String type;
 	
-//	private static String contentRegex = "<p.*?>(.*?)</p>"; // ÈÏÎªp±êÇ©ÄÚµÄÄÚÈİÎªĞÂÎÅÕıÎÄ
-//	private static String contentRegex = "<p\b[^<>]*>.*?</p>"; // ÈÏÎªp±êÇ©ÄÚµÄÄÚÈİÎªĞÂÎÅÕıÎÄ
-	private static String contentRegex = "<p>(.*?)</p>"; // ÈÏÎªp±êÇ©ÄÚµÄÄÚÈİÎªĞÂÎÅÕıÎÄ TODO
+//	private static String contentRegex = "<p.*?>(.*?)</p>"; 
+//	private static String contentRegex = "<p\b[^<>]*>.*?</p>";
+//	private static String contentRegex = "<p>(.*?)</p>"; 
 	private static String titleRegex = "<title>(.*?)</title>";
-	private static int maxLength = 3000; // »ñÈ¡ĞÂÎÅµÄ×î´ó³¤¶È
+	private static int maxLength = 3000; // ï¿½ï¿½È¡ï¿½ï¿½ï¿½Åµï¿½ï¿½ï¿½ó³¤¶ï¿½
 	
 	private static HashMap<String, String> params;
 	/**
-	 * Ìí¼ÓÏà¹ØÍ·ĞÅÏ¢£¬¶ÔÇëÇó½øĞĞÎ±×°
+	 * æ·»åŠ ç›¸å…³å¤´ä¿¡æ¯ï¼Œå¯¹è¯·æ±‚è¿›è¡Œä¼ªè£… 
 	 */
 	static {
 		params = new HashMap<String, String>();
@@ -33,7 +33,7 @@ public class News extends CrawlBase{
 	}
 	
 	/**
-	 * @Description: Ä¬ÈÏp±êÇ©ÄÚµÄÄÚÈİÎªÕıÎÄ£¬Èç¹ûÕıÎÄ³¤¶È²é¹ıÉèÖÃµÄ×î´ó³¤¶È£¬Ôò½ØÈ¡Ç°°ë²¿·Ö
+	 * @Description: è°ƒç”¨jaråŒ…è·å–æ­£æ–‡ï¼Œå¦‚æœæ­£æ–‡é•¿åº¦æŸ¥è¿‡è®¾ç½®çš„æœ€å¤§é•¿åº¦ï¼Œåˆ™æˆªå–å‰åŠéƒ¨åˆ†
 	 */
 	private void setContent() {
 		String content = null;
@@ -44,7 +44,7 @@ public class News extends CrawlBase{
 			e.printStackTrace();
 		}
 //		String content = DoRegex.getString(getPageSourceCode(), contentRegex, 1);
-//		content = content.replaceAll("\n", "") // ¼òµ¥µÄÈ¥Ôë
+//		content = content.replaceAll("\n", "") // ï¿½òµ¥µï¿½È¥ï¿½ï¿½
 //									  .replaceAll("<script.*?/script>", "")
 //									  .replaceAll("<style.*?/style>", "")
 //									  .replaceAll("<.*?>", "");
@@ -52,7 +52,7 @@ public class News extends CrawlBase{
 	}
 	
 	/**
-	 * @Description: Ä¬ÈÏtitle±êÇ©ÄÚµÄÄÚÈİÎª±êÌâ
+	 * @Description:  é»˜è®¤titleæ ‡ç­¾å†…çš„å†…å®¹ä¸ºæ ‡é¢˜ 
 	 */
 	private void setTitle() {
 		this.title = DoRegex.getString(getPageSourceCode(), titleRegex, 1);;

@@ -1,5 +1,5 @@
  /**  
- *@Description:  ±àÂë·½Ê½¼ì²âÀà  
+ *@Description:  ç¼–ç æ–¹å¼æ£€æµ‹ç±»   
  */ 
 package com.crawl;  
 
@@ -17,7 +17,7 @@ import info.monitorenter.cpdetector.io.UnicodeDetector;
 public class CharsetUtil {
 	private static final CodepageDetectorProxy detector;
 	
-	static {//³õÊ¼»¯Ì½²âÆ÷
+	static {//åˆå§‹åŒ–æ¢æµ‹å™¨  
 		detector = CodepageDetectorProxy.getInstance();
 		detector.add(new ParsingDetector(false));
 		detector.add(ASCIIDetector.getInstance());
@@ -28,20 +28,19 @@ public class CharsetUtil {
 	/**
 	 * @param url
 	 * @param defaultCharset
-	 * @return »ñÈ¡ÎÄ¼şµÄ±àÂë·½Ê½
+	 * @return  è·å–æ–‡ä»¶çš„ç¼–ç æ–¹å¼ 
 	 */
 	public static String getStreamCharset (URL url, String defaultCharset) {
 		if (url == null) {
 			return defaultCharset;
 		}
 		try {
-			//Ê¹ÓÃµÚÈı·½jar°ü¼ì²âÎÄ¼şµÄ±àÂë
+			// æ£€æµ‹æ–‡ä»¶çš„ç¼–ç   
 			Charset charset = detector.detectCodepage(url);
 			if (charset != null) {
 				return charset.name();
 			}
 		} catch (Exception e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		return defaultCharset;
@@ -51,7 +50,7 @@ public class CharsetUtil {
 	 * @param inputStream
 	 * @param defaultCharset
 	 * @return
-	 * @Description: »ñÈ¡ÎÄ¼şÁ÷µÄ±àÂë·½Ê½
+	 * @Description: è·å–æ–‡ä»¶æµçš„ç¼–ç æ–¹å¼ 
 	 */
 	public static String getStreamCharset (InputStream inputStream, String defaultCharset) {
 		if (inputStream == null) {
@@ -61,11 +60,10 @@ public class CharsetUtil {
 		try {
 			count = inputStream.available();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		try {
-			//Ê¹ÓÃµÚÈı·½jar°ü¼ì²âÎÄ¼şµÄ±àÂë
+			// æ£€æµ‹æ–‡ä»¶çš„ç¼–ç   
 			Charset charset = detector.detectCodepage(inputStream, count);
 			if (charset != null) {
 				return charset.name();

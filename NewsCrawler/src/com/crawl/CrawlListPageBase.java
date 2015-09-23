@@ -1,5 +1,5 @@
  /**  
-  *@Description: »ñÈ¡Ò³ÃæÁ´½ÓµØÖ·ĞÅÏ¢»ùÀà  
+  *@Description: è·å–é¡µé¢é“¾æ¥åœ°å€ä¿¡æ¯åŸºç±»   
  */ 
 package com.crawl;  
 
@@ -37,7 +37,7 @@ public abstract class CrawlListPageBase extends CrawlBase {
 	/**
 	 * @return List<String>
   
-	 * @Description: ·µ»ØÒ³ÃæÉÏĞèÇóµÄÁ´½ÓµØÖ·
+	 * @Description: è¿”å›é¡µé¢ä¸Šéœ€æ±‚çš„é“¾æ¥åœ°å€
 	 */
 	public List<String> getPageUrls(){
 		List<String> pageUrls = new ArrayList<String>();		
@@ -48,14 +48,14 @@ public abstract class CrawlListPageBase extends CrawlBase {
 	/**
 	 * @return String
   
-	 * @Description: ·µ»ØÒ³ÃæÉÏĞèÇóµÄÍøÖ·Á¬½ÓµÄÕıÔò±í´ïÊ½
+	 * @Description: è¿”å›é¡µé¢ä¸Šéœ€æ±‚çš„ç½‘å€è¿æ¥çš„æ­£åˆ™è¡¨è¾¾å¼ 
 	 */
 	public abstract String getUrlRegexString();
 	
 	/**
 	 * @return int
   
-	 * @Description: ÕıÔò±í´ïÊ½ÖĞÒªÈ¥µÄ×Ö¶ÎÎ»ÖÃ
+	 * @Description: æ­£åˆ™è¡¨è¾¾å¼ä¸­è¦å»çš„å­—æ®µä½ç½® 
 	 */
 	public abstract int getUrlRegexStringNum();	
 }

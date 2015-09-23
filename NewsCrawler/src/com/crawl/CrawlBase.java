@@ -1,5 +1,5 @@
  /**   
- *@Description: Ä£ÄâhttpÇëÇó£¬»ñÈ¡ÍøÒ³ĞÅÏ¢»ùÀà 
+ *@Description: è·å–ç½‘é¡µä¿¡æ¯åŸºç±» 
  */   
 package com.crawl;    
       
@@ -34,35 +34,34 @@ import org.apache.log4j.Logger;
 public abstract class CrawlBase {    
 	private static Logger log = Logger.getLogger(CrawlBase.class);  
 	
-    //Á´½ÓÍøÒ³µÄÔ´´úÂë  
+    // é“¾æ¥æºä»£ç   
     private String pageSourceCode = "";  
-    //·µ»ØÍ·ĞÅÏ¢  
+    // è¿”å›å¤´ä¿¡æ¯  
     private Header[] responseHeaders = null;  
-    //Á¬½Ó³¬Ê±Ê±¼ä  
-    private static int connectTimeout = 10000;  
-    //Á¬½Ó¶ÁÈ¡Ê±¼ä  
-    private static int readTimeout = 10000;  
-    //Ä¬ÈÏ×î´ó·ÃÎÊ´ÎÊı  
+    // è¿æ¥è¶…æ—¶æ—¶é—´  
+    private static int connectTimeout = 3500;  
+    // è¿æ¥è¯»å–æ—¶é—´  
+    private static int readTimeout = 3500;  
+    // é»˜è®¤æœ€å¤§è®¿é—®æ¬¡æ•°  
     private static int maxConnectTimes = 3;  
-    //ÍøÒ³Ä¬ÈÏ±àÂë·½Ê½  
+    // ç½‘é¡µé»˜è®¤ç¼–ç æ–¹å¼  
     private static String charsetName = "iso-8859-1";  
-    //½«HttpClientÎ¯ÍĞ¸øMultiThreadedHttpConnectionManager£¬Ö§³Ö¶àÏß³Ì  
+    // å¤šçº¿ç¨‹
     private static MultiThreadedHttpConnectionManager httpConnectionManager = new MultiThreadedHttpConnectionManager();  
     private static HttpClient httpClient = new HttpClient(httpConnectionManager);  
       
     static {  
         httpClient.getHttpConnectionManager().getParams().setConnectionTimeout(connectTimeout);  
         httpClient.getHttpConnectionManager().getParams().setSoTimeout(readTimeout);  
-        //ÉèÖÃÇëÇóµÄ±àÂë¸ñÊ½  
         httpClient.getParams().setContentCharset("utf-8");  
     }  
     /** 
      * @param urlStr 
-     * @param charsetName ±àÂë¸ñÊ½
+     * @param charsetName ç¼–ç æ–¹å¼
      * @param method 
      * @param params 
      * @return    
-     * @Description: method·½Ê½·ÃÎÊÒ³Ãæ 
+     * @Description: methoæ–¹å¼è®¿é—®é¡µé¢ 
      */  
     public boolean readPage(String urlStr, String charsetName, String method, HashMap<String, String> params) {  
         if ("post".equals(method) || "POST".equals(method)) {  
@@ -76,8 +75,8 @@ public abstract class CrawlBase {
      * @param urlStr 
      * @param charsetName 
      * @param params 
-     * @return ·ÃÎÊÊÇ·ñ³É¹¦ 
-     * @Description: Get·½Ê½·ÃÎÊÒ³Ãæ 
+     * @return è®¿é—®æ˜¯å¦æˆåŠŸ 
+     * @Description: Getæ–¹å¼è®¿é—®é¡µé¢ 
      */  
     public boolean readPageByGet(String urlStr, String charsetName, HashMap<String, String> params) {  
         GetMethod getMethod = createGetMethod(urlStr, params);  
@@ -88,11 +87,11 @@ public abstract class CrawlBase {
          * @param urlStr 
          * @param charsetName 
          * @param params 
-         * @return ·ÃÎÊÊÇ·ñ³É¹¦ 
+         * @return è®¿é—®æ˜¯å¦æˆåŠŸ 
          * @throws HttpException 
          * @throws IOException 
    
-         * @Description: Post·½Ê½·ÃÎÊÒ³Ãæ 
+         * @Description: Postæ–¹å¼è®¿é—®é¡µé¢
          */  
     public boolean readPageByPost(String urlStr, String charsetName, HashMap<String, String> params){  
         PostMethod postMethod = createPostMethod(urlStr, params);  
@@ -107,7 +106,7 @@ public abstract class CrawlBase {
      * @throws UnsupportedEncodingException  
      * @throws HttpException 
      * @throws IOException 
-     * @Description: Ìá½»xmlÁ÷²ÎÊı 
+     * @Description: xmlæ–¹å¼è®¿é—®é¡µé¢
      */  
     public boolean readPageByPostXml(String urlStr, String charsetName, String xmlString) throws UnsupportedEncodingException {  
         PostMethod postMethod = createPostMethodXml(urlStr, xmlString);  
@@ -122,7 +121,7 @@ public abstract class CrawlBase {
      * @throws UnsupportedEncodingException  
      * @throws HttpException 
      * @throws IOException 
-     * @Description: Ìá½»jsonÁ÷²ÎÊı 
+     * @Description: jsonæ–¹å¼è®¿é—®é¡µé¢ 
      */  
     public boolean readPageByPostJson(String urlStr, String charsetName, String jsonString) throws UnsupportedEncodingException {  
         PostMethod postMethod = createPostMethodJson(urlStr, jsonString);  
@@ -134,10 +133,10 @@ public abstract class CrawlBase {
      * @param method 
      * @param defaultCharset 
      * @param urlStr 
-     * @return ·ÃÎÊÊÇ·ñ³É¹¦ 
+     * @return è®¿é—®æ˜¯å¦æˆåŠŸ 
      * @throws HttpException 
-     * @throws IOException
-     * @Description: ¶ÁÈ¡Ò³ÃæĞÅÏ¢ºÍÍ·ĞÅÏ¢ 
+     * @throws IOException 
+     * @Description: è¯»å–é¡µé¢ä¿¡æ¯å’Œå¤´ä¿¡æ¯ 
      */  
     private boolean readPage(HttpMethod method, String defaultCharset, String urlStr){  
         int n = maxConnectTimes;  
@@ -148,9 +147,9 @@ public abstract class CrawlBase {
                 	System.out.println("can not connect " + urlStr + "\t" + (maxConnectTimes - n + 1) + "\t" + httpClient.executeMethod(method));                    
                     n--;  
                 } else {                      	
-                    //»ñÈ¡Í·ĞÅÏ¢  
-                    responseHeaders = method.getResponseHeaders();
-                    //»ñÈ¡Ò³ÃæÔ´´úÂë  
+                	//è·å–å¤´ä¿¡æ¯  
+                    responseHeaders = method.getResponseHeaders();  
+                    //è·å–é¡µé¢æºä»£ç   
                     InputStream inputStream = method.getResponseBodyAsStream();  
                     BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, charsetName));  
                     StringBuffer stringBuffer = new StringBuffer();  
@@ -162,7 +161,7 @@ public abstract class CrawlBase {
                     pageSourceCode = stringBuffer.toString();  
                     InputStream in =new  ByteArrayInputStream(pageSourceCode.getBytes(charsetName));  
                     String charset = CharsetUtil.getStreamCharset(in, defaultCharset);  
-                    //ÏÂÃæÕâ¸öÅĞ¶ÏÊÇÎªÁËIP¹éÊôµØ²éÑ¯ÌØÒâ¼ÓÉÏÈ¥µÄ  
+                    
                     if ("Big5".equals(charset)) {  
                         charset = "gbk";  
                     }  
@@ -183,7 +182,7 @@ public abstract class CrawlBase {
     /** 
      * @param url 
      * @return 
-     * @Description: ¶ÔURLÖĞµÄÖĞÎÄ×öÔ¤´¦Àí 
+     * @Description: å¤„ç†ä¸­æ–‡ 
      */  
     private String encodeUrlCh(String url) {  
         try {  
@@ -198,7 +197,7 @@ public abstract class CrawlBase {
      * @param urlStr 
      * @param params 
      * @return GetMethod
-     * @Description: ÉèÖÃgetÇëÇó²ÎÊı£¬Ä£Äâget 
+     * @Description: è®¾ç½®getè¯·æ±‚å‚æ•° 
      */  
     private GetMethod createGetMethod(String urlStr, HashMap<String, String> params){  
         urlStr = encodeUrlCh(urlStr);  
@@ -220,7 +219,7 @@ public abstract class CrawlBase {
      * @param urlStr 
      * @param params 
      * @return PostMethod
-     * @Description: ÉèÖÃpostÇëÇó²ÎÊı£¬Ä£Äâpost 
+     * @Description: è®¾ç½®postè¯·æ±‚å‚æ•° 
      */  
     private PostMethod createPostMethod(String urlStr, HashMap<String, String> params){  
         urlStr = encodeUrlCh(urlStr);  
@@ -243,7 +242,7 @@ public abstract class CrawlBase {
      * @param jsonString 
      * @return 
      * @throws UnsupportedEncodingException 
-     * @Description: ÉèÖÃjson¸ñÊ½Á÷²ÎÊı 
+     * @Description: è®¾ç½®jsonè¯·æ±‚å‚æ•° 
      */  
     private PostMethod createPostMethodJson(String urlStr, String jsonString) throws UnsupportedEncodingException{  
         urlStr = encodeUrlCh(urlStr);  
@@ -258,7 +257,7 @@ public abstract class CrawlBase {
      * @param xmlString 
      * @return 
      * @throws UnsupportedEncodingException 
-     * @Description: ÉèÖÃxml¸ñÊ½Á÷²ÎÊı 
+     * @Description: è®¾ç½®xmlè¯·æ±‚å‚æ•° 
      */  
     private PostMethod createPostMethodXml(String urlStr, String xmlString) throws UnsupportedEncodingException{  
         urlStr = encodeUrlCh(urlStr);  
@@ -269,79 +268,72 @@ public abstract class CrawlBase {
     }  
       
     /** 
-         * @param urlStr 
-         * @param charsetName 
-         * @return ·ÃÎÊÊÇ·ñ³É¹¦ 
-   
-         * @Description: ²»ÉèÖÃÈÎºÎÍ·ĞÅÏ¢Ö±½Ó·ÃÎÊÍøÒ³ 
-         */  
+     * @param urlStr 
+     * @param charsetName 
+     * @return è®¿é—®æ˜¯å¦æˆåŠŸ 
+     * @throws IOException 
+     * @Description: ä¸è®¾ç½®ä»»ä½•å¤´ä¿¡æ¯ç›´æ¥è®¿é—®ç½‘é¡µ 
+     */  
     public boolean readPageByGet(String urlStr, String charsetName){  
         return this.readPageByGet(urlStr, charsetName, null);  
     }  
       
     /** 
-         * @return String 
-   
-         * @Description: »ñÈ¡ÍøÒ³Ô´´úÂë 
-         */  
+     * @return String 
+     * @Description: è·å–ç½‘é¡µæºä»£ç  
+     */  
     public String getPageSourceCode(){  
         return pageSourceCode;  
     }  
       
     /** 
-         * @return Header[] 
-   
-         * @Description: »ñÈ¡ÍøÒ³·µ»ØÍ·ĞÅÏ¢ 
-         */  
+     * @return Header[] 
+     * @Description: è·å–ç½‘é¡µè¿”å›å¤´ä¿¡æ¯ 
+     */  
     public Header[] getHeader(){  
         return responseHeaders;  
     }  
       
     /** 
-         * @param timeout 
-   
-         * @Description: ÉèÖÃÁ¬½Ó³¬Ê±Ê±¼ä 
-         */  
+     * @param timeout   
+     * @Description: è®¾ç½®è¿æ¥è¶…æ—¶æ—¶é—´ 
+     */  
     public void setConnectTimeout(int timeout){  
         httpClient.getHttpConnectionManager().getParams().setConnectionTimeout(timeout);  
         CrawlBase.connectTimeout = timeout;  
     }  
       
     /** 
-         * @param timeout 
-   
-         * @Description: ÉèÖÃ¶ÁÈ¡³¬Ê±Ê±¼ä 
-         */  
+     * @param timeout   
+     * @Description: è®¾ç½®è¯»å–è¶…æ—¶æ—¶é—´ 
+     */ 
     public void setReadTimeout(int timeout){  
         httpClient.getHttpConnectionManager().getParams().setSoTimeout(timeout);  
         CrawlBase.readTimeout = timeout;  
     }  
       
     /** 
-         * @param maxConnectTimes 
-   
-         * @Description: ÉèÖÃ×î´ó·ÃÎÊ´ÎÊı£¬Á´½ÓÊ§°ÜµÄÇé¿öÏÂÊ¹ÓÃ 
-         */  
+     * @param maxConnectTimes 
+     * @Description: è®¾ç½®æœ€å¤§è®¿é—®æ¬¡æ•°ï¼Œé“¾æ¥å¤±è´¥çš„æƒ…å†µä¸‹ä½¿ç”¨ 
+     */  
     public static void setMaxConnectTimes(int maxConnectTimes) {  
         CrawlBase.maxConnectTimes = maxConnectTimes;  
     }  
   
     /** 
-         * @param connectTimeout 
-         * @param readTimeout 
-   
-         * @Description: ÉèÖÃÁ¬½Ó³¬Ê±Ê±¼äºÍ¶ÁÈ¡³¬Ê±Ê±¼ä 
-         */  
+     * @param connectTimeout 
+     * @param readTimeout 
+     * @Description: è®¾ç½®è¿æ¥è¶…æ—¶æ—¶é—´å’Œè¯»å–è¶…æ—¶æ—¶é—´ 
+     */  
     public void setTimeout(int connectTimeout, int readTimeout){  
         setConnectTimeout(connectTimeout);  
         setReadTimeout(readTimeout);  
     }  
   
     /** 
-         * @param charsetName 
-   
-         * @Description: ÉèÖÃÄ¬ÈÏ±àÂë·½Ê½ 
-         */  
+     * @param charsetName 
+     * @Description: è®¾ç½®é»˜è®¤ç¼–ç æ–¹å¼ 
+     */  
     public static void setCharsetName(String charsetName) {  
         CrawlBase.charsetName = charsetName;  
     }  

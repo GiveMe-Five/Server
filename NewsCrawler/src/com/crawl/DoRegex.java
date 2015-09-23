@@ -1,5 +1,5 @@
  /**  
- * @Description: ÕıÔò´¦Àí¹¤¾ß   
+ * @Description: æ­£åˆ™å¤„ç†å·¥å…·    
  */ 
 package com.crawl;  
 
@@ -19,7 +19,7 @@ public class DoRegex {
 	/**
 	 * 
 	 * @param str
-	 * @return dest È¥³ı»Ø³µ£¬»»ĞĞ£¬ÖÆ±í·ûºóµÄstr
+	 * @return æ— æ¢è¡Œï¼Œç©ºæ ¼ç­‰ä¿¡æ¯çš„str
 	 */
 	public static String getClearString(String str) {
         String dest = "";
@@ -36,7 +36,7 @@ public class DoRegex {
 	 * @param splitStr
 	 * @param n
 	 * @return String
-	 * @Description: ÕıÔòÆ¥Åä½á¹û£¬Ã¿Ìõ¼ÇÂ¼ÓÃsplitStr·Ö¸î
+	 * @Description: æ­£åˆ™åŒ¹é…ç»“æœï¼Œæ¯æ¡è®°å½•ç”¨splitStråˆ†å‰² 
 	 */
 	public static String getString(String dealStr, String regexStr, String splitStr, int n){
 		String reStr = "";
@@ -63,7 +63,7 @@ public class DoRegex {
 	 * @param regexStr
 	 * @param n
 	 * @return String
-	 * @Description: ÕıÔòÆ¥Åä½á¹û£¬½«ËùÓĞÆ¥Åä¼ÇÂ¼×é×°³É×Ö·û´®
+	 * @Description: æ­£åˆ™åŒ¹é…ç»“æœï¼Œå°†æ‰€æœ‰åŒ¹é…è®°å½•ç»„è£…æˆå­—ç¬¦ä¸² 
 	 */
 	public static String getString(String dealStr, String regexStr, int n){
 		return getString(dealStr, regexStr, null, n);
@@ -74,7 +74,7 @@ public class DoRegex {
 	 * @param regexStr
 	 * @param n
 	 * @return String
-	 * @Description: ÕıÔòÆ¥ÅäµÚÒ»Ìõ½á¹û
+	 * @Description: æ­£åˆ™åŒ¹é…ç¬¬ä¸€æ¡ç»“æœ 
 	 */
 	public static String getFirstString(String dealStr, String regexStr, int n){
 		if (dealStr == null || regexStr == null || n < 1 || dealStr.isEmpty()){
@@ -93,7 +93,7 @@ public class DoRegex {
 	 * @param regexStr
 	 * @param n
 	 * @return ArrayList<String>
-	 * @Description: ÕıÔòÆ¥Åä½á¹û£¬½«Æ¥Åä½á¹û×é×°³ÉÊı×é
+	 * @Description: æ­£åˆ™åŒ¹é…ç»“æœï¼Œå°†åŒ¹é…ç»“æœç»„è£…æˆæ•°ç»„ 
 	 */
 	public static List<String> getList(String dealStr, String regexStr, int n){
 		List<String> reArrayList = new ArrayList<String>();
@@ -112,7 +112,7 @@ public class DoRegex {
 	 * @param url
 	 * @param currentUrl
 	 * @return String
-	 * @Description: ×é×°ÍøÖ·£¬ÍøÒ³µÄurl
+	 * @Description: ç»„è£…ç½‘å€ï¼Œç½‘é¡µçš„url 
 	 */
 	private static String getHttpUrl(String url, String currentUrl){
 		try {
@@ -135,7 +135,7 @@ public class DoRegex {
 	 * @param currentUrl
 	 * @param n
 	 * @return ArrayList<String>
-	 * @Description: »ñÈ¡ºÍÕıÔòÆ¥ÅäµÄ¾ø¶ÔÁ´½ÓµØÖ·
+	 * @Description: è·å–å’Œæ­£åˆ™åŒ¹é…çš„ç»å¯¹é“¾æ¥åœ°å€ Ö·
 	 */
 	public static List<String> getArrayList(String dealStr, String regexStr, String currentUrl, int n){
 //		System.out.println("sourcecoede:\n"+dealStr);
@@ -158,7 +158,7 @@ public class DoRegex {
 	 * @param url
 	 * @return
 	 * @throws UnsupportedEncodingException
-	 * @Description: ½«Á¬½ÓµØÖ·ÖĞµÄÖĞÎÄ½øĞĞ±àÂë´¦Àí
+	 * @Description: å°†è¿æ¥åœ°å€ä¸­çš„ä¸­æ–‡è¿›è¡Œç¼–ç å¤„ç† 
 	 */
 	public static String encodeUrlCh (String url) throws UnsupportedEncodingException {
 		while (true) {
@@ -170,13 +170,13 @@ public class DoRegex {
 		}
 	}
 	
-	/**
-	 * @param dealStr
-	 * @param regexStr
-	 * @param array ÕıÔòÎ»ÖÃÊı×é
-	 * @return
-	 * @Description: »ñÈ¡È«²¿
-	 */
+    /** 
+     * @param dealStr 
+     * @param regexStr 
+     * @param array æ­£åˆ™ä½ç½®æ•°ç»„ 
+     * @return 
+     * @Description: è·å–å…¨éƒ¨ 
+     */
 	public static List<String[]> getListArray(String dealStr, String regexStr, int[] array) {
 		List<String[]> reArrayList = new ArrayList<String[]>();
 		if (dealStr == null || regexStr == null || array == null) {
@@ -204,7 +204,7 @@ public class DoRegex {
 	 * @param regexStr
 	 * @param array
 	 * @return
-	 * @Description: »ñÈ¡È«²¿
+	 * @Description: è·å–å…¨éƒ¨ 
 	 */
 	public static List<String> getStringArray(String dealStr, String regexStr, int[] array) {
 		List<String> reStringList = new ArrayList<String>();
@@ -228,13 +228,13 @@ public class DoRegex {
 		return reStringList;
 	}
 	
-	/**
-	 * @param dealStr
-	 * @param regexStr
-	 * @param array ÕıÔòÎ»ÖÃÊı×é
-	 * @return
-	 * @Description: »ñÈ¡µÚÒ»¸ö
-	 */
+    /** 
+     * @param dealStr 
+     * @param regexStr 
+     * @param array æ­£åˆ™ä½ç½®æ•°ç»„ 
+     * @return 
+     * @Description: è·å–ç¬¬ä¸€ä¸ª 
+     */ 
 	public static String[] getFirstArray(String dealStr, String regexStr, int[] array) {
 		if (dealStr == null || regexStr == null || array == null) {
 			return null;
