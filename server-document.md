@@ -1,5 +1,13 @@
 
+在运行server之前，将sql导入到本地数据库中，同时修改hibernate.cfg.xml中的用户名和密码
+
 ### EndPoint
+
+#### 链接：
+
+在自己电脑上运行Server Project将自己的手机置于同一wifi环境下，链接前缀：http://电脑IP/NewsCrawler/
+
+************************
 
 **getNewsList**
 
