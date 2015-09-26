@@ -12,8 +12,11 @@ import com.bean.NewsBean;
 import com.crawl.BaiduNewList;
 import com.crawl.News;
 import com.crawl.ParseMD5;
+import com.service.NewsService;
   
 public class CrawlNews {
+	
+	
 	private static List<Info> infos;
 //	private static KnnIndex knnIndex = new KnnIndex();
 //	private static KnnSearch knnSearch = new KnnSearch();
@@ -56,6 +59,8 @@ public class CrawlNews {
 		}
 	}
 	
+	private NewsService ns = new NewsService();
+	
 	/**
 	 * @param info
 	 * @Description: 抓取一个列表下面的新闻信息
@@ -70,11 +75,12 @@ public class CrawlNews {
 			for (String url : urls) { // 对每一条新闻链接，获取其正文内容
 				News news = new News(url);
 				NewsBean newBean = new NewsBean();
-				newBean.setId(ParseMD5.parseStrToMd5L32(url));
+//				newBean.setId(ParseMD5.parseStrToMd5L32(url));
 				newBean.setType(info.type);
 				newBean.setUrl(url);
 				newBean.setTitle(news.getTitle());
 				newBean.setContent(news.getContent());
+				ns.add(newBean);
 				System.out.println("title: "+news.getTitle());
 				System.out.println("content: "+news.getContent());
 				//保存到索引文件中

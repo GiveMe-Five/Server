@@ -11,19 +11,19 @@ public class NewsBean {
 	private static final int REALSTATE = 4; // 房产类
 	private static final int GAME = 5; // 游戏类
 	
-    private String id; // 唯一的标识符
+    private int id; // 唯一的标识符
     private String title; // 新闻的标题
     private String content; // 新闻正文  
     private String url; // url  
     private int type; // 新闻类型  
       
-    public String getId() {  
-        return id;  
-    }  
-    public void setId(String id) {  
-        this.id = id;  
-    }  
-    public String getTitle() {  
+    public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getTitle() {  
         return title;  
     }  
     public void setTitle(String title) {  
